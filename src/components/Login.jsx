@@ -12,7 +12,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-[70vh] flex items-center justify-center bg-[#f7f7f7] px-4">
+    <div className="min-h-[70vh] flex items-center justify-center bg-[#ffff] px-4">
       <div className="w-full max-w-sm text-center">
         <div className="mx-auto w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mb-6">
           <img src={myLogo} className="text-white text-2xl"/>
