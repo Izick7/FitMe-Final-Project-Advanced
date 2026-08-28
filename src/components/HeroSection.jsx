@@ -10,38 +10,38 @@ function HeroSection() {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
-      <div className="pointer-events-none absolute left-0 top-[145px]">
+      <div className="pointer-events-none absolute left-0 top-[145px] hidden md:block">
         <img src={heroBlob} alt="" className="w-[170px] -translate-x-[45%]" />
       </div>
 
-      <div className="pointer-events-none absolute right-[-85px] top-[255px] h-[125px] w-[125px] rounded-full border-[3px] border-[#e87524]" />
+      <div className="pointer-events-none absolute right-[-85px] top-[255px] h-[125px] w-[125px] rounded-full border-[3px] border-[#e87524] hidden md:block" />
 
-      <div className="relative mx-auto flex w-full max-w-[1280px] items-center gap-16 px-8 pb-24 pt-16">
+      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col lg:flex-row items-center gap-10 lg:gap-16 px-4 sm:px-8 pb-16 lg:pb-24 pt-10 lg:pt-16">
         
-        <div className="w-[560px] shrink-0">
-          <h1 className="text-5xl font-semibold leading-[1.3] tracking-wide text-[#292d32]">
+        <div className="w-full lg:w-[560px] shrink-0">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-[1.3] tracking-wide text-[#292d32]">
             Premium <span className="text-[#e87524]">quality</span>
             <br />
             Food for your{" "}
-            <span className="mx-1 inline-flex h-[54px] w-[76px] translate-y-2 items-center justify-center rounded-full bg-[#fde7c6] align-middle">
-              <img src={heroIcon2} alt="Banana" className="h-8 w-auto object-contain" />
+            <span className="mx-1 inline-flex h-[40px] w-[56px] lg:h-[54px] lg:w-[76px] translate-y-2 items-center justify-center rounded-full bg-[#fde7c6] align-middle">
+              <img src={heroIcon2} alt="Banana" className="h-6 lg:h-8 w-auto object-contain" />
             </span>
             <span className="text-[#e87524]">healthy</span>
             <br />
-            <span className="mr-1 inline-flex h-[54px] w-[76px] translate-y-2 items-center justify-center rounded-full bg-[#f8dde2] align-middle">
-              <img src={heroIcon1} alt="Tomato" className="h-8 w-auto object-contain" />
+            <span className="mr-1 inline-flex h-[40px] w-[56px] lg:h-[54px] lg:w-[76px] translate-y-2 items-center justify-center rounded-full bg-[#f8dde2] align-middle">
+              <img src={heroIcon1} alt="Tomato" className="h-6 lg:h-8 w-auto object-contain" />
             </span>
             <span className="text-[#e87524]">& Daily Life</span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#777b7f]">
+          <p className="mt-5 max-w-xl text-sm sm:text-base leading-relaxed text-[#777b7f]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
 
-          <div className="mt-6 flex w-[500px] items-center gap-3">
+          <div className="mt-6 flex w-full max-w-[500px] flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <input
               type="text"
               placeholder="Enter your delivery location"
@@ -54,7 +54,7 @@ function HeroSection() {
 
           <div className="mt-6 flex flex-col items-start gap-3 text-sm">
             <span className="text-[#666a6d]">Popular cities in India</span>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {cities.map((city, index) => (
                 <span
                   key={city}
@@ -71,14 +71,14 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="relative flex flex-1 items-center gap-6">
-          <div className="h-[440px] w-[260px] shrink-0 overflow-hidden rounded-xl">
+        <div className="relative flex w-full lg:flex-1 items-center gap-3 sm:gap-6 overflow-x-auto lg:overflow-visible">
+          <div className="h-[280px] sm:h-[360px] lg:h-[440px] w-[170px] sm:w-[210px] lg:w-[260px] shrink-0 overflow-hidden rounded-xl">
             <img src={heroImage1} alt="Healthy food" className="h-full w-full object-cover" />
           </div>
-          <div className="h-[300px] w-[220px] shrink-0 overflow-hidden rounded-xl">
+          <div className="h-[190px] sm:h-[250px] lg:h-[300px] w-[145px] sm:w-[180px] lg:w-[220px] shrink-0 overflow-hidden rounded-xl">
             <img src={heroImage2} alt="Healthy food" className="h-full w-full object-cover" />
           </div>
-          <div className="h-[300px] w-[220px] shrink-0 overflow-hidden rounded-l-xl">
+          <div className="h-[190px] sm:h-[250px] lg:h-[300px] w-[145px] sm:w-[180px] lg:w-[220px] shrink-0 overflow-hidden rounded-l-xl hidden sm:block">
             <img src={heroImage3} alt="" className="h-full w-full object-cover" />
           </div>
         </div>
