@@ -2,7 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import myLogo from "../assets/images/Logo.png";
 import { useState } from "react";
-import { Search, Menu, X, ShoppingCart } from "lucide-react";
+import { Search, Menu, X, } from "lucide-react";
+import { FiShoppingBag } from "react-icons/fi";
+
 
 function Navbar() {
   const { cart } = useCart();
@@ -33,7 +35,7 @@ function Navbar() {
           </div>
         </Link>
 
-        {/* Search - desktop only */}
+       
         <div className="relative hidden md:block flex-1 max-w-[420px]">
           <input
             type="text"
@@ -48,10 +50,9 @@ function Navbar() {
           </svg>
         </div>
 
-        {/* Desktop right side */}
         <div className="hidden md:flex items-center gap-6">
           <Link to="/cart" className="relative flex items-center justify-center text-[#292D32]">
-            <ShoppingCart size={24} />
+            <FiShoppingBag size={24}/>
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {itemCount}
@@ -68,10 +69,10 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Mobile: cart + hamburger */}
+        
         <div className="flex md:hidden items-center gap-4">
           <Link to="/cart" className="relative flex items-center justify-center text-[#292D32]">
-            <ShoppingCart size={22} />
+           <FiShoppingBag size={22} />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {itemCount}
@@ -90,7 +91,7 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown panel */}
+    
       {menuOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white px-4 py-5 space-y-4">
           <div className="relative">
