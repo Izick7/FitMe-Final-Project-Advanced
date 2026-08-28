@@ -14,7 +14,7 @@ function Login() {
     <div className="min-h-[70vh] flex items-center justify-center bg-[#f7f7f7] px-4">
       <div className="w-full max-w-sm text-center">
         <div className="mx-auto w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mb-6">
-          <span className="text-white text-2xl">🍽️</span>
+          <Img src={} "className="text-white text-2xl"/>
         </div>
 
         <h2 className="text-xl font-semibold text-gray-800">Welcome to FitMe</h2>

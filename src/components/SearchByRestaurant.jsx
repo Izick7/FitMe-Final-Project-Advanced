@@ -4,7 +4,7 @@ function SearchByRestaurant() {
   return (
    <>
 
-    <section className="w-full bg-[#e87524]">
+    <section className="max-w-full bg-[#e87524]">
       <div className="mx-auto flex h-[88px] max-w-[1280px] items-center justify-center gap-4 px-8">
         
         <div className="flex items-center gap-3">

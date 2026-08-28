@@ -45,7 +45,7 @@ function HeroSection() {
             <input
               type="text"
               placeholder="Enter your delivery location"
-              className="h-[48px] min-w-0 flex-1 rounded-lg border border-[#bfc3c7] bg-transparent px-4 text-sm outline-none placeholder:text-[#9a9a9a]"
+              className="h-[48px] min-w-0 flex-1 rounded-lg border border-[#bfc3c7] bg-transparent px-10 px-4 text-sm outline-none placeholder:text-[#9a9a9a]"
             />
             <button className="h-[48px] shrink-0 rounded-lg bg-[#292d32] px-6 text-sm font-medium text-white">
               Get Started
