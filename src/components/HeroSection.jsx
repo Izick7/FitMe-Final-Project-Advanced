@@ -10,15 +10,15 @@ function HeroSection() {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
-      <div className="pointer-events-none absolute left-0 top-[145px] hidden md:block">
-        <img src={heroBlob} alt="" className="w-[170px] -translate-x-[45%]" />
+      <div className="pointer-events-none absolute left-7 top-[145px] hidden md:block">
+        <img src={heroBlob} alt="" className="w-[100px] -translate-x-[45%]" />
       </div>
 
       <div className="pointer-events-none absolute right-[-85px] top-[255px] h-[125px] w-[125px] rounded-full border-[3px] border-[#e87524] hidden md:block" />
 
       <div className="relative mx-auto flex w-full max-w-[1280px] flex-col lg:flex-row items-center gap-10 lg:gap-16 px-4 sm:px-8 pb-16 lg:pb-24 pt-10 lg:pt-16">
-        
-        <div className="w-full lg:w-[560px] shrink-0">
+
+        <div className="w-full lg:w-[560px] shrink-0 ml-[30px]">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-[1.3] tracking-wide text-[#292d32]">
             Premium <span className="text-[#e87524]">quality</span>
             <br />
@@ -58,11 +58,10 @@ function HeroSection() {
               {cities.map((city, index) => (
                 <span
                   key={city}
-                  className={`cursor-pointer ${
-                    index === 1 || index === 3 || index === 5
+                  className={`cursor-pointer ${index === 1 || index === 3 || index === 5
                       ? "text-[#e87524]"
                       : "text-[#777b7f]"
-                  }`}
+                    }`}
                 >
                   {city}
                 </span>
@@ -71,17 +70,15 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="relative flex w-full lg:flex-1 items-center gap-3 sm:gap-6 overflow-x-auto lg:overflow-visible">
+        <div className="relative flex justify-end w-full lg:flex-1 items-center gap-3 sm:gap-6 overflow-x-auto lg:overflow-visible">
           <div className="h-[280px] sm:h-[360px] lg:h-[440px] w-[170px] sm:w-[210px] lg:w-[260px] shrink-0 overflow-hidden rounded-xl">
             <img src={heroImage1} alt="Healthy food" className="h-full w-full object-cover" />
           </div>
           <div className="h-[190px] sm:h-[250px] lg:h-[300px] w-[145px] sm:w-[180px] lg:w-[220px] shrink-0 overflow-hidden rounded-xl">
             <img src={heroImage2} alt="Healthy food" className="h-full w-full object-cover" />
           </div>
-          <div className="h-[190px] sm:h-[250px] lg:h-[300px] w-[145px] sm:w-[180px] lg:w-[220px] shrink-0 overflow-hidden rounded-l-xl hidden sm:block">
-            <img src={heroImage3} alt="" className="h-full w-full object-cover" />
-          </div>
         </div>
+
       </div>
     </section>
   );
