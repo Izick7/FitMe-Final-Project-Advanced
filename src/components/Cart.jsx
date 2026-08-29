@@ -10,7 +10,7 @@ function Cart() {
 
   function handleCheckout() {
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate("/login", {state:{from:"/checkoutSubscription"}});
     } else {
       navigate("/checkoutSubscription");
     }

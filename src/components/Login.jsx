@@ -1,14 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import myLogo from "../assets/images/Logo.png";
 
 function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
+   const location = useLocation();
 
   function handleLogin() {
     login();
-    navigate("/checkoutSubscription");
+     const destination = location.state?.from || "/";
+      navigate(destination);
   }
 
   return (

@@ -21,7 +21,7 @@ function Navbar() {
   }
 
   function handleSignin() {
-    navigate("/login");
+   navigate("/login", { state: { from: "/homepage" } });
     setMenuOpen(false);
   }
 
