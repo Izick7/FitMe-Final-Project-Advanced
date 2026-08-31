@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import myLogo from "../assets/images/Logo.png";
 import { useState } from "react";
-import { Search, Menu, X, } from "lucide-react";
+import { Search, Menu, X, User } from "lucide-react";
 import { FiShoppingBag } from "react-icons/fi";
-
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const { cart } = useCart();
@@ -12,6 +12,8 @@ function Navbar() {
   const [query, setQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   function handleSearch(e) {
     if (e.key === "Enter" && query.trim() !== "") {
@@ -21,8 +23,13 @@ function Navbar() {
   }
 
   function handleSignin() {
-   navigate("/login", { state: { from: "/homepage" } });
+    navigate("/login", { state: { from: "/homepage" } });
     setMenuOpen(false);
+  }
+
+  function handleSignout() {
+    navigate("/homepage");
+    logout()
   }
 
   return (
@@ -35,7 +42,7 @@ function Navbar() {
           </div>
         </Link>
 
-       
+
         <div className="relative hidden md:block flex-1 max-w-[420px]">
           <input
             type="text"
@@ -52,7 +59,7 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-6">
           <Link to="/cart" className="relative flex items-center justify-center text-[#292D32]">
-            <FiShoppingBag size={24}/>
+            <FiShoppingBag size={24} />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {itemCount}
@@ -60,19 +67,37 @@ function Navbar() {
             )}
           </Link>
 
-          <button
-            type="button"
-            className="h-[46px] rounded-lg bg-[#292D32] px-6 text-sm font-medium text-white transition-colors hover:bg-black"
-            onClick={handleSignin}
-          >
-            Sign In
-          </button>
+          {isLoggedIn ? (
+            <div className="relative">
+              <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex items-center justify-center text-[#292D32]">
+                <User size={22} />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-4 py-4 px-6 rounded-xl border border-zinc-200 bg-[#f7f7f7] flex flex-col gap-3">
+                  <h1>Hello User</h1>
+                  <button onClick={handleSignout}>Log out</button>
+                </div>
+              )}
+            </div>
+
+         )
+
+            :
+            (<button
+              type="button"
+              className="h-[46px] rounded-lg bg-[#292D32] px-6 text-sm font-medium text-white transition-colors hover:bg-black"
+              onClick={handleSignin}
+            >
+              Sign In
+            </button>)
+          }
+
         </div>
 
-        
+
         <div className="flex md:hidden items-center gap-4">
           <Link to="/cart" className="relative flex items-center justify-center text-[#292D32]">
-           <FiShoppingBag size={22} />
+            <FiShoppingBag size={22} />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {itemCount}
@@ -91,7 +116,7 @@ function Navbar() {
         </div>
       </div>
 
-    
+
       {menuOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white px-4 py-5 space-y-4">
           <div className="relative">
