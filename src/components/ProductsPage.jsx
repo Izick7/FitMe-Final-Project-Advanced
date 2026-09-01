@@ -10,7 +10,7 @@ function ProductsPage() {
 
   if (!foundProduct) {
     return (
-      <div className="max-w-xl mx-auto px-8 py-20 text-center">
+      <div className="max-w-xl mx-auto px-4 sm:px-8 py-20 text-center">
         <h2 className="text-xl font-semibold text-gray-800">Product not found</h2>
         <Link to="/" className="text-orange-500 underline mt-2 inline-block">
           Back to home
@@ -20,28 +20,28 @@ function ProductsPage() {
   }
 
   return (
-    <div className="max-w-[1280px] mx-auto px-8 py-10">
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 sm:py-10">
       <p className="text-sm text-gray-400 mb-6">
         Home / {foundProduct.restaurantTag} / <span className="text-gray-700">{foundProduct.title}</span>
       </p>
 
-      <div className="flex gap-12">
-        <div className="w-[420px] shrink-0 rounded-xl overflow-hidden">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+        <div className="w-full lg:w-[420px] shrink-0 rounded-xl overflow-hidden">
           <img
             src={foundProduct.img}
             alt={foundProduct.title}
-            className="w-full h-[420px] object-cover"
+            className="w-full h-[240px] sm:h-[320px] lg:h-[420px] object-cover"
           />
         </div>
 
         <div className="flex-1">
-          <h1 className="text-2xl font-semibold text-gray-800">{foundProduct.title}</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">{foundProduct.title}</h1>
           <p className="text-sm text-gray-400 mt-1">{foundProduct.restaurantTag}</p>
 
-          <div className="flex items-center gap-6 mt-4 text-sm text-gray-700">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-4 text-sm text-gray-700">
             <span className="flex items-center gap-1">
               <Tag size={18} className="text-orange-500" />
-              <span className="text-xl font-semibold text-gray-900">₹{foundProduct.price}</span>
+              <span className="text-lg sm:text-xl font-semibold text-gray-900">₹{foundProduct.price}</span>
             </span>
             <span className="flex items-center gap-1">
               <Clock size={18} className="text-orange-500" /> {foundProduct.deliveryTime} Mins

@@ -10,7 +10,7 @@ function Cart() {
 
   function handleCheckout() {
     if (!isLoggedIn) {
-      navigate("/login", {state:{from:"/checkoutSubscription"}});
+      navigate("/login", { state: { from: "/checkoutSubscription" } });
     } else {
       navigate("/checkoutSubscription");
     }
@@ -29,39 +29,39 @@ function Cart() {
   return (
     <div>
       {/* Dark featured banner */}
-      <div className="bg-[#1a1a1a] px-8 py-6 flex items-center gap-6">
+      <div className="bg-[#1a1a1a] px-4 sm:px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
         <img
           src={featured.img}
           alt={featured.title}
-          className="w-24 h-24 rounded-lg object-cover"
+          className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover shrink-0"
         />
-        <div className="flex-1 text-white">
-          <h1 className="text-lg font-semibold">{featured.title}</h1>
+        <div className="flex-1 text-white min-w-0">
+          <h1 className="text-base sm:text-lg font-semibold">{featured.title}</h1>
           <p className="text-sm text-gray-400">{featured.restaurantTag}</p>
-          <div className="flex gap-6 mt-2 text-sm text-gray-300">
+          <div className="flex flex-wrap gap-4 sm:gap-6 mt-2 text-sm text-gray-300">
             <span>{featured.deliveryTime} Mins</span>
             <span>₹{featured.price} Cost for two</span>
           </div>
         </div>
-        <div className="border border-orange-500 rounded-lg px-4 py-2 text-orange-400 text-sm">
+        <div className="border border-orange-500 rounded-lg px-4 py-2 text-orange-400 text-sm w-full sm:w-auto">
           <p className="font-medium">Offers</p>
           <p className="text-xs mt-1">50% off up to ₹100 | Use code TRYNEW</p>
           <p className="text-xs">20% off | Use code PARTY</p>
         </div>
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-8 py-8 flex gap-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-8 flex flex-col lg:flex-row gap-6 lg:gap-8">
         {/* Sidebar */}
-        <div className="w-[180px] shrink-0 text-sm text-gray-500 space-y-3">
-          <p className="text-orange-500 font-medium">Recommended</p>
-          <p>Breakfast Box</p>
-          <p>Lunch Box</p>
-          <p>Combo Box</p>
-          <p>Biryani Box</p>
+        <div className="w-full lg:w-[180px] shrink-0 text-sm text-gray-500 flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible">
+          <p className="text-orange-500 font-medium shrink-0">Recommended</p>
+          <p className="shrink-0">Breakfast Box</p>
+          <p className="shrink-0">Lunch Box</p>
+          <p className="shrink-0">Combo Box</p>
+          <p className="shrink-0">Biryani Box</p>
         </div>
 
         {/* Item list */}
-        <div className="flex-1 border-l border-gray-100 pl-8">
+        <div className="flex-1 lg:border-l border-gray-100 lg:pl-8">
           {cart.map((item) => (
             <div key={item.id} className="mb-6">
               <h3 className="font-semibold text-gray-800">{item.title}</h3>
@@ -73,7 +73,7 @@ function Cart() {
         </div>
 
         {/* Cart panel */}
-        <div className="w-[300px] shrink-0 border border-gray-100 rounded-xl p-5">
+        <div className="w-full lg:w-[300px] shrink-0 border border-gray-100 rounded-xl p-5 h-fit">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-semibold text-gray-800">Cart</h3>
             <span className="text-sm text-gray-400">{cart.length} Items</span>

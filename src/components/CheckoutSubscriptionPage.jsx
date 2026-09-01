@@ -17,10 +17,10 @@ function CheckoutSubscriptionPage() {
   const finalTotal = total - discount;
 
   return (
-    <div className="max-w-[1280px] mx-auto px-8 py-10">
-      <h1 className="text-2xl font-bold text-gray-800 border-b pb-4">Secure Checkout</h1>
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 sm:py-10">
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-800 border-b pb-4">Secure Checkout</h1>
 
-      <div className="flex gap-10 mt-8">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 mt-8">
         {/* Left column */}
         <div className="flex-1">
           {/* Delivery address */}
@@ -28,7 +28,7 @@ function CheckoutSubscriptionPage() {
             <MapPin size={18} className="text-orange-500" />
             <h2 className="font-semibold text-gray-800">Delivery address</h2>
           </div>
-          <div className="flex gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <button
               onClick={() => setAddress("primary")}
               className={`flex-1 flex items-start gap-2 text-left rounded-xl px-4 py-3 text-sm ${
@@ -58,7 +58,7 @@ function CheckoutSubscriptionPage() {
             <MapPin size={18} className="text-orange-500" />
             <h2 className="font-semibold text-gray-800">Type of Order</h2>
           </div>
-          <div className="flex gap-4 mb-6">
+          <div className="flex flex-wrap gap-3 sm:gap-4 mb-6">
             {[
               { key: "subscription", label: "Subscription" },
               { key: "schedule", label: "Schedule Order" },
@@ -67,7 +67,7 @@ function CheckoutSubscriptionPage() {
               <button
                 key={opt.key}
                 onClick={() => setOrderType(opt.key)}
-                className={`flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium border ${
+                className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-lg text-sm font-medium border ${
                   orderType === opt.key
                     ? "bg-orange-500 text-white border-orange-500"
                     : "border-dashed border-gray-300 text-gray-600"
@@ -80,10 +80,10 @@ function CheckoutSubscriptionPage() {
           </div>
 
           {orderType === "subscription" && (
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
               <div>
                 <p className="text-sm text-gray-500 mb-2">Type of subscription?</p>
-                <div className="flex gap-6 border-b border-gray-200">
+                <div className="flex gap-4 sm:gap-6 border-b border-gray-200">
                   {["monthly", "weekly", "custom"].map((t) => (
                     <button
                       key={t}
@@ -107,7 +107,7 @@ function CheckoutSubscriptionPage() {
 
               <div>
                 <p className="text-sm text-gray-500 mb-2">What's the plan?</p>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {[
                     { key: "3days", label: "3-Days/Week" },
                     { key: "5days", label: "5-Days/Week" },
@@ -138,7 +138,7 @@ function CheckoutSubscriptionPage() {
         </div>
 
         {/* Cart summary panel */}
-        <div className="w-[340px] shrink-0 bg-gray-50 rounded-xl p-5 h-fit">
+        <div className="w-full lg:w-[340px] shrink-0 bg-gray-50 rounded-xl p-5 h-fit">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-semibold text-gray-800">Cart</h3>
             <span className="text-sm text-gray-400">{cart.length} Items</span>
